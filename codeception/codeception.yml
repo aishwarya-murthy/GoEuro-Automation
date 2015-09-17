@@ -1,0 +1,29 @@
+actor: Tester
+paths:
+    tests: tests
+    log: build/codeception
+    data: tests/_data
+    helpers: tests/_support
+settings:
+    bootstrap: _bootstrap.php
+    memory_limit: 1024M
+coverage:
+  enabled: true
+  remote: true
+  remote_context_options:
+    http:
+      timeout: 300
+    ssl:
+      verify_peer: false
+modules:
+    enabled:
+        - BrowserShimHelper
+        - Sequence
+        - Asserts
+    config:
+        BrowserShimHelper:
+            url: 'http://www.goeuro.com'
+            WebDriver:
+                browser: firefox
+                window_size: 1024x768
+
